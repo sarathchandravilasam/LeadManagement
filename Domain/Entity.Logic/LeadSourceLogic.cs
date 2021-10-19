@@ -18,6 +18,11 @@ namespace Domain.Entity.Logic
             _leadSourceRepository = leadSourceRepository;
         }
 
+        public void DeteteLeadSource(int id)
+        {
+            _leadSourceRepository.DeleteLeadSource(id);
+        }
+
         public ILeadSource GetLeadSourceById(int id)
         {
             return _leadSourceRepository.GetLeadSourceById(id);

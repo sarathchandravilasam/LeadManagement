@@ -88,17 +88,12 @@ namespace LeadManagement.Controllers
 
         // POST: LeadSourcesController/Delete/5
         [HttpPost]
+        [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Deletes(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _leadSourceLogic.DeteteLeadSource(id);
+            return RedirectToAction("Index");
         }
     }
 }

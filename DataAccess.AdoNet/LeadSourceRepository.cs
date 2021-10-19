@@ -21,6 +21,17 @@ namespace DataAccess.AdoNet
             _sqlConnection = new SqlConnection(_appSettings.SqlConnectionString);
         }
 
+        public void DeleteLeadSource(int id)
+        {
+            _sqlConnection.Open();
+            SqlCommand cmd = new SqlCommand("spDeleteSource", _sqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@pSourceId", id);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            _sqlConnection.Close();
+        }
+
         public ILeadSource GetLeadSourceById(int id)
         {
             DataSet ds = new DataSet();
