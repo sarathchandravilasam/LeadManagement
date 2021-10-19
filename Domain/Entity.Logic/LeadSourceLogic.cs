@@ -17,6 +17,12 @@ namespace Domain.Entity.Logic
         {
             _leadSourceRepository = leadSourceRepository;
         }
+
+        public ILeadSource GetLeadSourceById(int id)
+        {
+            return _leadSourceRepository.GetLeadSourceById(id);
+        }
+
         public List<ILeadSource> GetLeadSources()
         {
             var sources = _leadSourceRepository.GetLeadSources();

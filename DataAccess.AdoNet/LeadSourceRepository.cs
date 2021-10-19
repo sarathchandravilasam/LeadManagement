@@ -20,9 +20,28 @@ namespace DataAccess.AdoNet
             _appSettings = appSettings;
             _sqlConnection = new SqlConnection(_appSettings.SqlConnectionString);
         }
+
+        public ILeadSource GetLeadSourceById(int id)
+        {
+            DataSet ds = new DataSet();
+            SqlCommand sqlCommand = new SqlCommand("spGetLeadSourceById", _sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@pSourceId", id);
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+            da.Fill(ds);
+            DataRow row = ds.Tables[0].Rows[0];
+            ILeadSource leadSource = new LeadSource
+            {
+                SourceId = Int32.Parse(row["SourceId"].ToString()),
+                Source = row["Source"].ToString(),
+                Description = row["Description"].ToString()
+            };
+            return leadSource;
+        }
+
         public List<ILeadSource> GetLeadSources()
         {
-            SqlDataAdapter da = new SqlDataAdapter("spGetLeadSource", _sqlConnection);
+            SqlDataAdapter da = new SqlDataAdapter("spSelectLeadSource", _sqlConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
             List<ILeadSource> leadSources = new List<ILeadSource>();

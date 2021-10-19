@@ -11,6 +11,7 @@ namespace Domain.Abstract.Entity.Logic
     {
         List<ILeadSource> GetLeadSources();
 
+        ILeadSource GetLeadSourceById(int id);
         void InsertLeadSource(ILeadSource leadSource);
     }
 }

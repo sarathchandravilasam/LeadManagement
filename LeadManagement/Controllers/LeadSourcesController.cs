@@ -28,7 +28,8 @@ namespace LeadManagement.Controllers
         // GET: LeadSourcesController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var leadSources = _leadSourceLogic.GetLeadSourceById(id);
+            return View(leadSources);
         }
 
         // GET: LeadSourcesController/Create
