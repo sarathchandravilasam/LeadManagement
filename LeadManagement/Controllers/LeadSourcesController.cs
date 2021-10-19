@@ -61,22 +61,23 @@ namespace LeadManagement.Controllers
         // GET: LeadSourcesController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var lead=_leadSourceLogic.GetLeadSourceById(id);
+            return View(lead);
         }
 
         // POST: LeadSourcesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(LeadSource leadSource)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            //var leadSource = new LeadSource
+            //{
+            //    Source = leadSourceVM.Source,
+
+            //    Description = leadSourceVM.Description
+            //};
+            _leadSourceLogic.UpdateLeadSource(leadSource);
+            return RedirectToAction("Index");
         }
 
         // GET: LeadSourcesController/Delete/5

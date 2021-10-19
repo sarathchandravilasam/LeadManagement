@@ -33,5 +33,10 @@ namespace Domain.Entity.Logic
         {
             _leadSourceRepository.InsertLeadSource(leadSource);
         }
+
+        public void UpdateLeadSource(ILeadSource leadSource)
+        {
+            _leadSourceRepository.UpdateLeadSource(leadSource);
+        }
     }
 }

@@ -14,5 +14,6 @@ namespace Domain.Abstract.Repository
         ILeadSource GetLeadSourceById(int id);
 
         void InsertLeadSource(ILeadSource leadSource);
+        void UpdateLeadSource(ILeadSource leadSource);
     }
 }

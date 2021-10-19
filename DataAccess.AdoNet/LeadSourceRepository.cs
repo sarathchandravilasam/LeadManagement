@@ -41,7 +41,7 @@ namespace DataAccess.AdoNet
 
         public List<ILeadSource> GetLeadSources()
         {
-            SqlDataAdapter da = new SqlDataAdapter("spSelectLeadSource", _sqlConnection);
+            SqlDataAdapter da = new SqlDataAdapter("spGetLeadSource", _sqlConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
             List<ILeadSource> leadSources = new List<ILeadSource>();
@@ -63,6 +63,19 @@ namespace DataAccess.AdoNet
             _sqlConnection.Open();
             SqlCommand cmd = new SqlCommand("spInsertLeadSource", _sqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@pSource", leadSource.Source);
+            cmd.Parameters.AddWithValue("@pDescription", leadSource.Description);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            _sqlConnection.Close();
+        }
+
+        public void UpdateLeadSource(ILeadSource leadSource)
+        {
+            _sqlConnection.Open();
+            SqlCommand cmd = new SqlCommand("spUpdateLeadSource", _sqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@pSourceId", leadSource.SourceId);
             cmd.Parameters.AddWithValue("@pSource", leadSource.Source);
             cmd.Parameters.AddWithValue("@pDescription", leadSource.Description);
             cmd.ExecuteNonQuery();
