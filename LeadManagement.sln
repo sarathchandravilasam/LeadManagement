@@ -3,25 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeadManagement", "LeadManagement\LeadManagement.csproj", "{1DBB61E6-E347-4CA8-906B-3E22D45CB4D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeadManagement", "LeadManagement\LeadManagement.csproj", "{1DBB61E6-E347-4CA8-906B-3E22D45CB4D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1Presentation", "1Presentation", "{5B44D479-878C-470C-9B7F-203EA40FA7E1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2Domain", "2Domain", "{C4A01C40-B541-44AF-A349-E3CE0B344B4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Abstract", "Domain.Abstract\Domain.Abstract.csproj", "{31768B3D-0000-47FA-A971-41402360E28E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Abstract", "Domain.Abstract\Domain.Abstract.csproj", "{31768B3D-0000-47FA-A971-41402360E28E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3DataAccess", "3DataAccess", "{4DD34BEF-044E-4444-A8A4-7DA2989BB551}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.AdoNet", "DataAccess.AdoNet\DataAccess.AdoNet.csproj", "{42EA6101-D478-4169-B055-EFCFDCBC71FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.AdoNet", "DataAccess.AdoNet\DataAccess.AdoNet.csproj", "{42EA6101-D478-4169-B055-EFCFDCBC71FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{585066D4-B9E4-4CDB-82E0-FC959AF581F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{585066D4-B9E4-4CDB-82E0-FC959AF581F2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4Infra", "4Infra", "{2001F460-AF44-406E-97B3-B6ABECCEF62C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration", "Configuration\Configuration.csproj", "{FB301D77-502B-430E-9831-FC150E0EA6E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration", "Configuration\Configuration.csproj", "{FB301D77-502B-430E-9831-FC150E0EA6E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Injuction", "Injuction\Injuction.csproj", "{ECF06414-67A5-4B85-A5F2-57E13D603CE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Injuction", "Injuction\Injuction.csproj", "{ECF06414-67A5-4B85-A5F2-57E13D603CE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

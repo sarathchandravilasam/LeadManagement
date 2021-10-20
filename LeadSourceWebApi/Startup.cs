@@ -1,17 +1,17 @@
-using Configuration;
-using Injuction;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LeadManagement
+namespace LeadSourceWebApi
 {
     public class Startup
     {
@@ -25,17 +25,12 @@ namespace LeadManagement
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var appSettings = Configuration.Get<AppSettings>();
-            services.AddSingleton(appSettings);
 
-            services.AddDependency();
-
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o =>
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
             {
-                o.LoginPath = "/LeadSources/LogIn";
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LeadSourceWebApi", Version = "v1" });
             });
-
-            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,24 +39,17 @@ namespace LeadManagement
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LeadSourceWebApi v1"));
             }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-            app.UseStaticFiles();
 
             app.UseRouting();
-
-            app.UseAuthentication();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=LeadSources}/{action=Index1}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }
