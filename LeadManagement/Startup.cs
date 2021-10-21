@@ -30,10 +30,10 @@ namespace LeadManagement
 
             services.AddDependency();
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o =>
-            {
-                o.LoginPath = "/LeadSources/LogIn";
-            });
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(o =>{
+                    o.LoginPath = "/Home/LogIn";
+                });
 
             services.AddControllersWithViews();
         }
@@ -61,7 +61,7 @@ namespace LeadManagement
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=LeadSources}/{action=Index1}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -22,18 +22,17 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="LeadSources" asp-action="Index">LeadSource</a>
                         </li>
-                        
                     </ul>
-                    <ul class=" navbar-nav navbar-right">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="LeadSources" asp-action="Logout">Log Out</a>
-                        </li>
-                    </ul>
+                    <div class="navbar nav-right">
+                        <form asp-controller="Home" asp-action="LogIn">
+                            <button class="btn btn-lg btn-light">Login</button>
+                        </form>
+                        <form asp-controller="Home" asp-action="Logout" method="post">
+                            <button class="btn btn-lg btn-light">Logout</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </nav>
